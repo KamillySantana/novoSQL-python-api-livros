@@ -1,0 +1,24 @@
+create table usuario (
+    id_usuario int primary key AUTO_INCREMENT,
+    email varchar(254),
+    senha varchar(100)
+);
+
+INSERT INTO usuario VALUES
+(1, 'julia@gmail.com', '123456');
+
+create table livro (
+    id_livros int auto_increment primary key,
+    id_usuario int DEFAULT NULL,
+    titulo varchar(100),
+    autor varchar(254),
+    ano_publicado int,
+    KEY id_usuario (id_usuario),
+    CONSTRAINT livro FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
+);
+
+insert into livro values
+(1, 1, 'Jogador Número 1', 'Ernest Cline', 2011),
+(2, 1, 'Divergente', 'Veronica Roth', 2011),
+(3, 1, 'Aurora Rising', 'Amie Kaufman e Jay Kristoff', 2019),
+(4, 1, 'A Culpa é das estrelas', 'John Green', 2012);
